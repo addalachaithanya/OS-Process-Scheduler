@@ -1,0 +1,8 @@
+Defaut XINU Scheduling Policy:
+The default scheduling policy of XINU is priority based  and if there is a process that requires immediate handling but has its priority set to a very low value, then it has to wait until all the processes with higher priority finish executing. This leads to starvation of processes with lower priority.
+
+Linux-like Scheduling Policy:
+Linux-like scheduling schedules a process based on its goodness.Here,the goodness is equal to quantam and the priority of the process.If a process quantum is not over in the previous epoch its goodness is improved for a new epoch.The improved goodness gives the process more priority over the other processes in the new epoch.However,real time processes have to be scheduled alongside normal process.Thus,real processes have to be run in the same queue as normal processes.
+
+Multi-Queue Scheduler:
+Multi-Queue Scheduler gives more priority to real time processes due to the 70 % probability it gives to select a real queue and the rest 30 %to select a normal queue.If no special preference is given to any process in the real queue and they are all executed in round robin fashion. This may not be preferred when we want to give priority to processes within the real queue also to be executed with some priority.
